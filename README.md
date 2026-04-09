@@ -22,7 +22,7 @@ A lightweight Cesium-based common operating picture (COP) for a small-town searc
 
 ## Run
 
-Because this MVP uses ES modules, run it from a local static server:
+Because this MVP uses browser JavaScript modules/assets, run it from a local static server:
 
 ```bash
 python3 -m http.server 8080
