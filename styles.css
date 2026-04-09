@@ -1,0 +1,142 @@
+:root {
+  color-scheme: dark;
+  --bg: #0f172a;
+  --panel: #111827;
+  --soft: #1f2937;
+  --accent: #38bdf8;
+  --danger: #f87171;
+  --ok: #34d399;
+  --text: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Inter, system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+#app {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+}
+
+.sidebar {
+  overflow-y: auto;
+  border-right: 1px solid #334155;
+  padding: 0.9rem;
+  background: linear-gradient(180deg, #0b1224 0%, #111827 100%);
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.subhead {
+  margin-top: 0.25rem;
+  color: #93c5fd;
+}
+
+section {
+  margin-top: 0.9rem;
+  border: 1px solid #374151;
+  background: rgba(17, 24, 39, 0.9);
+  border-radius: 10px;
+  padding: 0.6rem;
+}
+
+h2 {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  color: #bfdbfe;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.35rem;
+}
+
+input,
+select,
+button {
+  padding: 0.45rem;
+  border-radius: 8px;
+  border: 1px solid #475569;
+  background: var(--soft);
+  color: var(--text);
+}
+
+button {
+  cursor: pointer;
+  background: #1d4ed8;
+  border-color: #60a5fa;
+}
+
+button:hover {
+  filter: brightness(1.08);
+}
+
+small {
+  color: #94a3b8;
+}
+
+main,
+#cesiumContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.stats {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+}
+
+.stats span {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.list {
+  display: grid;
+  gap: 0.3rem;
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.list-item {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 0.35rem;
+  font-size: 0.78rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.08rem 0.4rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  margin-left: 0.4rem;
+}
+
+.badge-danger { background: #7f1d1d; }
+.badge-ok { background: #065f46; }
+
+#thermal-feed {
+  width: 100%;
+  margin-top: 0.4rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #020617;
+}
