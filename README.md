@@ -32,21 +32,8 @@ Then open:
 
 - `http://localhost:8080`
 
-## Troubleshooting
-
-If the globe does not appear:
-
-- Ensure you are using `http://localhost:8080` (not opening `index.html` directly as a file).
-- Ensure internet access is available (Cesium assets and terrain/imagery are loaded from Cesium ion CDN).
-- Check the top-right status banner in the app for a load error message.
-
 ## Notes
 
 - Uses Cesium via CDN (`unpkg`) for quick MVP setup.
-- Uses Cesium ion token configured in `app.js` for Cesium World Terrain/imagery startup.
+- Uses Cesium world terrain; internet access is required.
 - Drone thermal stream is a simulated heatmap for UI/demo purposes.
-
-
-## Security note
-
-- The access token is currently embedded for MVP convenience; rotate/regenerate if this repo is shared publicly.
