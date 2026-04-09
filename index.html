@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Town C2 Awareness COP (MVP)</title>
+    <link rel="stylesheet" href="https://unpkg.com/cesium@1.120/Build/Cesium/Widgets/widgets.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <aside class="sidebar">
+        <h1>Town COP MVP</h1>
+        <p class="subhead">Search & Rescue C2 Awareness Platform</p>
+
+        <section>
+          <h2>Operations Snapshot</h2>
+          <div class="stats">
+            <div><span id="stat-alerts">0</span> active alerts</div>
+            <div><span id="stat-paths">0</span> planned paths</div>
+            <div><span id="stat-sensors">0</span> sensors deployed</div>
+            <div><span id="stat-dispatch">0</span> active dispatches</div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Community Missing Intake</h2>
+          <form id="missing-form" class="form-grid">
+            <input name="name" placeholder="Missing person name" required />
+            <input name="lastSeen" placeholder="Last seen details" required />
+            <select name="urgency">
+              <option>Low</option>
+              <option selected>Medium</option>
+              <option>High</option>
+              <option>Critical</option>
+            </select>
+            <button type="submit">Add Missing Alert @ Map Center</button>
+          </form>
+        </section>
+
+        <section>
+          <h2>Community Path Plan Intake</h2>
+          <form id="path-form" class="form-grid">
+            <input name="owner" placeholder="Occupant / Group" required />
+            <input name="description" placeholder="Hike / expedition summary" required />
+            <button type="button" id="path-start">Set Start (click map)</button>
+            <button type="button" id="path-end">Set End (click map)</button>
+            <button type="submit">Submit Planned Path</button>
+          </form>
+          <small id="path-status">Start/end not selected.</small>
+        </section>
+
+        <section>
+          <h2>Sensor Integration</h2>
+          <form id="sensor-form" class="form-grid">
+            <select name="type">
+              <option value="tower-thermal">Sentry Tower (Thermal)</option>
+              <option value="tower-mesh">Meshtastic Repeater Tower</option>
+              <option value="loaner-mesh">Loaner Meshtastic Device</option>
+              <option value="laser-fence">Laser Perimeter Fence</option>
+            </select>
+            <input name="label" placeholder="Sensor label" required />
+            <button type="submit">Place Sensor @ Map Center</button>
+          </form>
+        </section>
+
+        <section>
+          <h2>Waypoints</h2>
+          <form id="waypoint-form" class="form-grid">
+            <select name="type">
+              <option value="shelter">Shelter Region</option>
+              <option value="muster">Muster Point</option>
+              <option value="medical">Medical Aid Point</option>
+            </select>
+            <input name="label" placeholder="Waypoint label" required />
+            <button type="submit">Place Waypoint @ Map Center</button>
+          </form>
+        </section>
+
+        <section>
+          <h2>Thermal Drone Ops</h2>
+          <form id="drone-form" class="form-grid">
+            <input name="name" placeholder="Drone callsign" value="DRONE-ALPHA" required />
+            <button type="button" id="drone-start">Set Launch (click map)</button>
+            <button type="button" id="drone-end">Set Target (click map)</button>
+            <input name="altitude" type="number" min="50" value="250" />
+            <input name="fov" type="number" min="20" max="120" value="60" />
+            <button type="submit">Launch / Update Drone Mission</button>
+          </form>
+          <small id="drone-status">Launch/target not selected.</small>
+          <canvas id="thermal-feed" width="260" height="120" aria-label="Mock thermal feed"></canvas>
+        </section>
+
+        <section>
+          <h2>Dispatch</h2>
+          <form id="dispatch-form" class="form-grid">
+            <select name="resource">
+              <option>Search & Rescue Team</option>
+              <option>Thermal Drone</option>
+              <option>RECCO Helicopter</option>
+            </select>
+            <input name="task" placeholder="Tasking note" required />
+            <button type="submit">Dispatch to Selected Alert</button>
+          </form>
+          <div id="dispatch-list" class="list"></div>
+        </section>
+
+        <section>
+          <h2>COP Event Feed</h2>
+          <div id="event-feed" class="list"></div>
+        </section>
+      </aside>
+
+      <main>
+        <div id="cesiumContainer"></div>
+      </main>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
